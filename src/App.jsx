@@ -9,8 +9,8 @@ export default function App() {
   const { lat, lng } = position;
 
   return (
-    <div>
-      <button>Get my location</button>
+    <div className="container">
+      <button className="btn">Get my location</button>
     </div>
   );
 }

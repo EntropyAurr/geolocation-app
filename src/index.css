@@ -13,3 +13,20 @@ html {
 body {
   font-family: "Poppins";
 }
+
+.container {
+  width: 50rem;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 1.5rem 2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #c7c7c7;
+  font-size: 1.8rem;
+}
