@@ -1,14 +1,16 @@
+import { useLocation } from "./useLocation";
 import { useState } from "react";
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const {
+    isLoading,
+    error,
+    position: { lat, lng },
+    getPosition,
+  } = useLocation();
   const [countClicks, setCountClicks] = useState(0);
-  const [position, setPosition] = useState({});
 
-  const { lat, lng } = position;
-
-  function getPosition() {
+  /*   function getPosition() {
     setCountClicks((count) => count + 1);
 
     // navigator.geolocation: an API allows retrieving the current location in a web browser
@@ -29,12 +31,19 @@ export default function App() {
       }
     );
   }
+ */
+
+  function handleClick() {
+    setCountClicks((count) => count + 1);
+    getPosition();
+  }
 
   return (
     <div className="container">
-      <button className="btn" onClick={getPosition} disabled={isLoading}>
+      <button className="btn" onClick={handleClick} disabled={isLoading}>
         Get my location
       </button>
+
       <div className="result">
         {isLoading && <p>Loading position...</p>}
         {error && <p>{error}</p>}
